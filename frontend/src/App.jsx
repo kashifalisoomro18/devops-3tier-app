@@ -7,13 +7,13 @@ function App() {
 
   useEffect(() => {
     // Backend health check
-    fetch('http://localhost:5000/health')
+    fetch('/api/health')
       .then((res) => res.json())
       .then((data) => setMessage(data.status))
       .catch((err) => setMessage('Backend not reachable'));
 
     // Backend database test
-    fetch('http://localhost:5000/db-test')
+    fetch('/api/db-test')
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
